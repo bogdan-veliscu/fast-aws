@@ -9,7 +9,7 @@ def client():
     return TestClient(app)
 
 
-def test_heath_check(client):
+def test_health_check(client):
     """
     GIVEN
     WHEN health check endpoint is called with GET method
