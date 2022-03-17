@@ -16,7 +16,7 @@ build-python-ci-image:
       - master
 
 
-service-talk-booking-code-quality:
+service-booking-code-quality:
   stage: test
   image: registry.gitlab.com/bogdan-veliscu/fast-aws:cicd-python3.9-slim
   before_script:
@@ -36,7 +36,7 @@ service-talk-booking-code-quality:
     changes:
       - services/booking/**/*
 
-service-talk-booking-tests:
+service-booking-tests:
   stage: test
   image: registry.gitlab.com/bogdan-veliscu/fast-aws:cicd-python3.9-slim
   before_script:
