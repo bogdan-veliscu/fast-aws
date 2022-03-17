@@ -1,6 +1,9 @@
 stages:
   - docker
   - test
+  - validate
+  - plan
+  - apply
 
 variables:
   DOCKER_DRIVER: overlay2
@@ -25,4 +28,5 @@ build-python-ci-image:
     - docker push registry.gitlab.com/bogdan-veliscu/fast-aws:cicd-python3.9-slim
 
 include:
+  - local: /infrastructure/global/vpc/ci-cd.yml
   - local: /services/booking/ci-cd.yml
