@@ -25,4 +25,4 @@ build-python-ci-image:
     - docker push registry.gitlab.com/bogdan-veliscu/fast-aws:cicd-python3.9-slim
 
 include:
-  - local: /services/booking/.venv/ci-cd.yml
+  - local: /services/booking/ci-cd.yml
