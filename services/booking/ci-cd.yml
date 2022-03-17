@@ -11,3 +11,18 @@ service-talk-booking-code-quality:
     - poetry run isort . --check-only --profile black
     - poetry run bandit .
     - poetry run safety check
+
+service-talk-booking-tests:
+  stage: test
+  image: registry.gitlab.com/bogdan-veliscu/fast-aws:cicd-python3.9-slim
+  before_script:
+    - cd services/talk_booking/
+    - poetry install
+  script:
+    - poetry run python3 -m pytest --junitxml=report.xml --cov=./ --cov-report=xml tests/integration
+  after_script:
+    - bash <(curl -s https://codecov.io/bash)
+  artifacts:
+    when: always
+    reports:
+      junit: services/booking/report.xml
